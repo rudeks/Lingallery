@@ -229,10 +229,16 @@
       this.currentCaption = this.items[this.startImage].caption
       this.currentIndex = this.startImage
       this.windowWidth = window.innerWidth
+      this.$emit("index", this.currentIndex);
     },
     watch: {
       items () {
         this.currentImage = this.items[this.startImage].src
+        this.$emit("index", this.startImage);
+      },
+
+      currentIndex () {
+        this.$emit("index", this.currentIndex);
       }
     }
   }
